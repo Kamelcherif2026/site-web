@@ -134,6 +134,8 @@ html[dir=rtl] .kicker{letter-spacing:0}
 .member{background:var(--jasmin);border-radius:var(--radius);padding:1.8rem;text-align:center}
 .avatar{display:grid;place-items:center;width:72px;height:72px;margin:0 auto 1rem;border-radius:50%;background:var(--indigo);color:var(--saffron);font-size:1.8rem;font-weight:700}
 .role{color:var(--coral-d);font-weight:600;margin-bottom:.4rem}
+.member .photo{width:160px;height:160px;object-fit:cover;border-radius:50%;margin:0 auto 1.2rem;border:5px solid #fff;box-shadow:0 0 0 3px var(--coral)}
+.member:nth-child(3n+2) .photo{box-shadow:0 0 0 3px var(--teal)}.member:nth-child(3n) .photo{box-shadow:0 0 0 3px var(--saffron)}
 
 /* Lists */
 .checks{list-style:none;padding:0;margin:0}

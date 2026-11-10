@@ -44,7 +44,7 @@ module.exports = {
   },
   association: {
     title: 'About us',
-    intro: 'The Tunisian Association for Cultural Innovation (<bdi lang="ar">الجمعية التونسية للابتكار الثقافي</bdi>) is an independent non-profit association governed by Decree-Law No. 2011-88 of 24 September 2011. Its founding was published in the Official Journal of the Tunisian Republic in November 2026.',
+    intro: 'The Tunisian Association for Cultural Innovation (<bdi lang="ar">الجمعية التونسية للابتكار الثقافي</bdi>) is an independent non-profit association governed by Decree-Law No. 2011-88 of 24 September 2011. Its founding was published in the Official Journal of the Tunisian Republic on 6 November 2026.',
     manifestoTitle: 'What we believe',
     manifesto: 'Culture is not a luxury: it is a fundamental right and a driver of development, freedom and creativity. We look for new ways for artists and audiences to meet, making cultural spaces closer, more open and more inclusive, through projects that respect heritage and look to the future.',
     visionTitle: 'Our vision',
@@ -60,9 +60,9 @@ module.exports = {
     values: ['Culture as a right for all', 'Innovation in service of people', 'Art as dialogue', 'Respect for diversity', 'Transparency and good governance', 'Openness to the world'],
     boardTitle: 'Executive board',
     board: [
-      { n: 'Mohamed Kamel Cherif', r: 'President', d: 'Violinist, composer and multidisciplinary artist.' },
-      { n: 'Yassine Kechou', r: 'Secretary General', d: '' },
-      { n: 'Ameni Zemni', r: 'Treasurer', d: '' },
+      { n: 'Mohamed Kamel Cherif', r: 'President', d: 'Violinist, composer and multidisciplinary artist.', p: 'kamel-cherif.jpg' },
+      { n: 'Ameni Zemni', r: 'Treasurer', d: '', p: 'ameni-zemni.jpg' },
+      { n: 'Yassine Kchaou', r: 'Secretary General', d: '', p: 'yassine-kchaou.jpg' },
     ],
   },
   projects: {
@@ -148,15 +148,16 @@ module.exports = {
     legal: [
       ['Name', 'Association Tunisienne pour l’Innovation Culturelle — <bdi lang="ar">الجمعية التونسية للابتكار الثقافي</bdi>'],
       ['Legal form', 'Non-profit association, Decree-Law No. 2011-88 of 24 September 2011'],
-      ['Official Journal (JORT)', 'November 2026'],
-      ['National Business Register ID', '[to be completed]'],
+      ['Official Journal (JORT)', 'No. 137 of 6 November 2026, page 3317 (ref. 2026403760APSF1)'],
+      ['National Business Register ID', 'Registration in progress'],
       ['Registered office', 'Résidence Houdou, F33, entrance F, apartment 8, 2073 Borj Louzir – Ariana'],
       ['President', 'Mohamed Kamel Cherif'],
     ],
     docsTitle: 'Official documents',
     docs: [
       { t: 'Articles of association (Arabic)', f: 'statuts.pdf' },
-      { t: 'Founding notice published in the Official Journal', f: 'annonce-jort.pdf' },
+      { t: 'Founding notice in the Official Journal (French)', f: 'annonce-jort-fr.pdf' },
+      { t: 'Founding notice in the Official Journal (Arabic)', f: 'annonce-jort-ar.pdf' },
     ],
     docsSoon: 'Coming soon',
     commitTitle: 'Our commitments',

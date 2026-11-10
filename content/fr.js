@@ -44,7 +44,7 @@ module.exports = {
   },
   association: {
     title: 'L’association',
-    intro: 'L’Association Tunisienne pour l’Innovation Culturelle (<bdi lang="ar">الجمعية التونسية للابتكار الثقافي</bdi>) est une association indépendante à but non lucratif, régie par le décret-loi n° 2011-88 du 24 septembre 2011. Sa création a été publiée au Journal Officiel de la République Tunisienne en novembre 2026.',
+    intro: 'L’Association Tunisienne pour l’Innovation Culturelle (<bdi lang="ar">الجمعية التونسية للابتكار الثقافي</bdi>) est une association indépendante à but non lucratif, régie par le décret-loi n° 2011-88 du 24 septembre 2011. Sa création a été publiée au Journal Officiel de la République Tunisienne le 6 novembre 2026.',
     manifestoTitle: 'Notre conviction',
     manifesto: 'La culture n’est pas un luxe : c’est un droit fondamental et un moteur de développement, de liberté et de création. Nous cherchons de nouvelles formes de rencontre entre l’artiste et le public, pour rendre l’espace culturel plus proche, plus ouvert et plus inclusif, avec des projets qui respectent le patrimoine et regardent vers l’avenir.',
     visionTitle: 'Notre vision',
@@ -60,9 +60,9 @@ module.exports = {
     values: ['La culture, un droit pour tous', 'L’innovation au service de l’humain', 'L’art comme dialogue', 'Le respect de la diversité', 'La transparence et la bonne gouvernance', 'L’ouverture sur le monde'],
     boardTitle: 'Le bureau',
     board: [
-      { n: 'Mohamed Kamel Cherif', r: 'Président', d: 'Violoniste, compositeur et artiste pluridisciplinaire.' },
-      { n: 'Yassine Kechou', r: 'Secrétaire général', d: '' },
-      { n: 'Ameni Zemni', r: 'Trésorière', d: '' },
+      { n: 'Mohamed Kamel Cherif', r: 'Président', d: 'Violoniste, compositeur et artiste pluridisciplinaire.', p: 'kamel-cherif.jpg' },
+      { n: 'Ameni Zemni', r: 'Trésorière', d: '', p: 'ameni-zemni.jpg' },
+      { n: 'Yassine Kchaou', r: 'Secrétaire général', d: '', p: 'yassine-kchaou.jpg' },
     ],
   },
   projects: {
@@ -148,15 +148,16 @@ module.exports = {
     legal: [
       ['Dénomination', 'Association Tunisienne pour l’Innovation Culturelle — <bdi lang="ar">الجمعية التونسية للابتكار الثقافي</bdi>'],
       ['Forme', 'Association à but non lucratif, décret-loi n° 2011-88 du 24 septembre 2011'],
-      ['Publication au JORT', 'Novembre 2026'],
-      ['Identifiant RNE', '[à compléter]'],
+      ['Publication au JORT', 'N° 137 du 6 novembre 2026, page 3317 (réf. 2026403760APSF1)'],
+      ['Identifiant RNE', 'Immatriculation en cours'],
       ['Siège', 'Résidence Houdou, F33, entrée F, appartement 8, 2073 Borj Louzir – Ariana'],
       ['Président', 'Mohamed Kamel Cherif'],
     ],
     docsTitle: 'Documents officiels',
     docs: [
       { t: 'Statuts de l’association', f: 'statuts.pdf' },
-      { t: 'Annonce de constitution publiée au JORT', f: 'annonce-jort.pdf' },
+      { t: 'Annonce de constitution publiée au JORT (français)', f: 'annonce-jort-fr.pdf' },
+      { t: 'Annonce de constitution publiée au JORT (arabe)', f: 'annonce-jort-ar.pdf' },
     ],
     docsSoon: 'Disponible prochainement',
     commitTitle: 'Nos engagements',

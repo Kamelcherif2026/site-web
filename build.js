@@ -57,7 +57,7 @@ function layout(l, page, title, body) {
   const active = page.parent || page.id;
   const nav = NAV.map(id => `<li><a href="${fileOf(id)}"${active === id ? ' aria-current="page"' : ''}>${t.nav[id]}</a></li>`).join('');
   const langs = cfg.languages.map(x => x === l ? `<span class="lang-current" lang="${x}">${T[x].label}</span>` : `<a href="../${x}/${page.file}" lang="${x}" hreflang="${x}" title="${T[x].langName}">${T[x].label}</a>`).join('');
-  const social = [cfg.facebook && `<a href="${cfg.facebook}" aria-label="Facebook" rel="noopener">${ICON.fb}</a>`, cfg.instagram && `<a href="${cfg.instagram}" aria-label="Instagram" rel="noopener">${ICON.ig}</a>`, `<a href="mailto:${cfg.email}" aria-label="${t.contact.emailLabel}">${ICON.mail}</a>`].filter(Boolean).join('');
+  const social = [cfg.facebook && `<a href="${cfg.facebook}" aria-label="Facebook" rel="noopener">${ICON.fb}</a>`, cfg.instagram && `<a href="${cfg.instagram}" aria-label="Instagram" rel="noopener">${ICON.ig}</a>`, cfg.email && `<a href="mailto:${cfg.email}" aria-label="${t.contact.emailLabel}">${ICON.mail}</a>`].filter(Boolean).join('');
   const fullTitle = page.id === 'home' ? `${t.name} — ${t.tagline}` : `${title} — ${t.name}`;
   return `<!doctype html>
 <html lang="${l}" dir="${t.dir}">
@@ -99,7 +99,7 @@ ${body}
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="f-brand">${SYM_INV}<p class="f-name">${t.name}</p><p>${t.footer.about}</p></div>
-    <div><h2>${t.nav.contact}</h2><p>${t.footer.address}</p><p><a href="mailto:${cfg.email}">${cfg.email}</a></p></div>
+    <div><h2>${t.nav.contact}</h2><p>${t.footer.address}</p>${cfg.email ? `<p><a href="mailto:${cfg.email}">${cfg.email}</a></p>` : ''}</div>
     <div><h2>${t.footer.follow}</h2><div class="social">${social}</div><p class="f-links"><a href="transparence.html">${t.footer.legal}</a></p></div>
   </div>
   <div class="wrap f-bottom"><span>© ${new Date().getFullYear()} ${t.name}. ${t.footer.rights}</span><span class="stripe" aria-hidden="true"></span></div>
@@ -160,7 +160,7 @@ const render = {
   <div><h2>${a.goalsTitle}</h2><ol class="goals">${a.goals.map(g => `<li>${g}</li>`).join('')}</ol></div>
 </div></section>
 <section class="section"><div class="wrap"><h2>${a.valuesTitle}</h2><ul class="values">${a.values.map((v, i) => `<li class="c${i % 3}">${v}</li>`).join('')}</ul></div></section>
-<section class="section alt"><div class="wrap"><h2>${a.boardTitle}</h2><div class="board">${a.board.map(b => `<div class="member"><span class="avatar" aria-hidden="true">${b.n.trim().charAt(0)}</span><h3>${b.n}</h3><p class="role">${b.r}</p>${b.d ? `<p>${b.d}</p>` : ''}</div>`).join('')}</div></div></section>`;
+<section class="section alt"><div class="wrap"><h2>${a.boardTitle}</h2><div class="board">${a.board.map(b => `<div class="member">${b.p && fs.existsSync(path.join(ROOT, 'src/assets/img/bureau', b.p)) ? `<img class="photo" src="../assets/img/bureau/${b.p}" alt="${esc(b.n)}" width="240" height="240" loading="lazy">` : `<span class="avatar" aria-hidden="true">${b.n.trim().charAt(0)}</span>`}<h3>${b.n}</h3><p class="role">${b.r}</p>${b.d ? `<p>${b.d}</p>` : ''}</div>`).join('')}</div></div></section>`;
   },
   projects(l) {
     const p = T[l].projects;
@@ -205,7 +205,7 @@ const render = {
 <section class="section"><div class="wrap"><h2>${p.whyTitle}</h2><div class="pillars three">${p.why.map((w, i) => `<div class="pillar c${i % 3}"><span class="dot"></span><h3>${w.t}</h3><p>${w.d}</p></div>`).join('')}</div></div></section>
 <section class="section alt"><div class="wrap"><h2>${p.waysTitle}</h2><div class="ways">${p.ways.map((w, i) => `<div class="way"><span class="num">${String(i + 1).padStart(2, '0')}</span><h3>${w.t}</h3><p>${w.d}</p></div>`).join('')}</div></div></section>
 <section class="section"><div class="wrap"><h2>${p.listTitle}</h2>${logos}</div></section>
-<section class="cta-band"><div class="wrap cta-inner"><div><h2>${p.cta}</h2></div><div class="actions"><a class="btn btn-primary" href="mailto:${cfg.email}?subject=${encodeURIComponent(p.cta)}">${cfg.email}</a></div></div></section>`;
+<section class="cta-band"><div class="wrap cta-inner"><div><h2>${p.cta}</h2></div><div class="actions"><a class="btn btn-primary" href="${cfg.email ? `mailto:${cfg.email}?subject=${encodeURIComponent(p.cta)}` : 'contact.html'}">${cfg.email || T[l].nav.contact}</a></div></div></section>`;
   },
   transparency(l) {
     const t = T[l].transparency;
@@ -226,11 +226,11 @@ const render = {
     return `${hero(c.title, c.intro)}
 <section class="section"><div class="wrap two-col">
   <div class="contact-list">
-    <p><span>${c.emailLabel}</span><a href="mailto:${cfg.email}">${cfg.email}</a></p>
-    <p><span>${c.phoneLabel}</span><a href="tel:${cfg.phone.replace(/\s/g, '')}" dir="ltr">${cfg.phone}</a></p>
+    ${cfg.email ? `<p><span>${c.emailLabel}</span><a href="mailto:${cfg.email}">${cfg.email}</a></p>` : ''}
+    ${cfg.phone ? `<p><span>${c.phoneLabel}</span><a href="tel:${cfg.phone.replace(/\s/g, '')}" dir="ltr">${cfg.phone}</a></p>` : ''}
     ${cfg.facebook ? `<p><span>${c.facebookLabel}</span><a href="${cfg.facebook}" rel="noopener">${cfg.facebook.replace(/^https?:\/\/(www\.)?/, '')}</a></p>` : ''}
     <p><span>${c.addressLabel}</span>${T[l].footer.address}</p>
-    <a class="btn btn-primary" href="mailto:${cfg.email}">${c.write}</a>
+    ${cfg.email ? `<a class="btn btn-primary" href="mailto:${cfg.email}">${c.write}</a>` : ''}
   </div>
   <div class="join-box"><h2>${c.joinTitle}</h2><p class="price">50 <small>${l === 'ar' ? 'دينار / سنة' : l === 'en' ? 'TND / year' : 'DT / an'}</small></p><p>${c.join}</p></div>
 </div></section>`;
@@ -255,7 +255,7 @@ fs.writeFileSync(path.join(DIST, 'index.html'), `<!doctype html><html lang="fr">
 <link rel="icon" href="assets/img/favicon.png"><meta http-equiv="refresh" content="0; url=${cfg.defaultLanguage}/">
 <script>(function(){var l=(navigator.language||'').slice(0,2);var ok=${JSON.stringify(cfg.languages)};location.replace((ok.indexOf(l)>-1?l:'${cfg.defaultLanguage}')+'/');})();</script></head>
 <body style="font-family:sans-serif;background:#1A1446;color:#fff;text-align:center;padding:3rem">${cfg.languages.map(l => `<p><a style="color:#FFB627" href="${l}/">${T[l].name}</a></p>`).join('')}</body></html>`);
-fs.writeFileSync(path.join(DIST, '404.html'), `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>404</title><link rel="stylesheet" href="/assets/css/style.css"></head><body><main class="notfound"><div>${SYM_INV}<h1>404</h1><p>Page introuvable · الصفحة غير موجودة · Page not found</p><p><a class="btn btn-primary" href="/">${T.fr.nav.home}</a></p></div></main></body></html>`);
+fs.writeFileSync(path.join(DIST, '404.html'), `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>404</title><link rel="stylesheet" href="${cfg.siteUrl}/assets/css/style.css"></head><body><main class="notfound"><div>${SYM_INV}<h1>404</h1><p>Page introuvable · الصفحة غير موجودة · Page not found</p><p><a class="btn btn-primary" href="${cfg.siteUrl}/">${T.fr.nav.home}</a></p></div></main></body></html>`);
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${u}</loc></url>`).join('\n')}\n</urlset>\n`);
 fs.writeFileSync(path.join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${cfg.siteUrl}/sitemap.xml\n`);
 console.log(`Site généré dans dist/ : ${urls.length} pages (${cfg.languages.join(', ')}).`);
