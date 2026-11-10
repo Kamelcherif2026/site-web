@@ -1,0 +1,18 @@
+[
+  {
+    "date": "2026-11-06",
+    "draft": false,
+    "tag": { "fr": "Association", "ar": "الجمعية", "en": "Association" },
+    "fr": { "title": "Naissance officielle de l’association", "text": "La création de l’Association Tunisienne pour l’Innovation Culturelle a été publiée au Journal Officiel de la République Tunisienne. Une nouvelle aventure commence, avec l’art au centre." },
+    "ar": { "title": "الولادة الرسمية للجمعية", "text": "صدر إعلان تأسيس الجمعية التونسية للابتكار الثقافي بالرائد الرسمي للجمهورية التونسية. تبدأ مغامرة جديدة، والفن في قلبها." },
+    "en": { "title": "The association is officially born", "text": "The founding of the Tunisian Association for Cultural Innovation has been published in the Official Journal of the Tunisian Republic. A new adventure begins, with art at its heart." }
+  },
+  {
+    "date": "2026-11-15",
+    "draft": true,
+    "tag": { "fr": "Adhésion", "ar": "انخراط", "en": "Membership" },
+    "fr": { "title": "Les 100 Fondateurs", "text": "Pendant 30 jours, les 100 premiers adhérents deviennent les Fondateurs de l’association : carte numérotée, nom sur le Mur des Fondateurs et invitation au concert d’inauguration." },
+    "ar": { "title": "المؤسسون المئة", "text": "لمدة 30 يوماً، يصبح أول 100 منخرط مؤسسي الجمعية: بطاقة مرقّمة، الاسم على جدار المؤسسين ودعوة لحفل الافتتاح." },
+    "en": { "title": "The 100 Founders", "text": "For 30 days, the first 100 members become the association’s Founders: a numbered card, their name on the Founders’ Wall and an invitation to the opening concert." }
+  }
+]

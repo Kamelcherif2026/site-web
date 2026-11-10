@@ -1,0 +1,10 @@
+{
+  "name": "site-association-innovation-culturelle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site officiel de l'Association Tunisienne pour l'Innovation Culturelle (FR / AR / EN)",
+  "scripts": {
+    "build": "node build.js",
+    "preview": "node build.js && node preview.js"
+  }
+}
