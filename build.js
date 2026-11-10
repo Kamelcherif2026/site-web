@@ -23,6 +23,8 @@ const partners = readJSON('partenaires.json', []);
 const foreignFunds = readJSON('financements-etrangers.json', []);
 const T = Object.fromEntries(cfg.languages.map(l => [l, require(`./content/${l}.js`)]));
 const svg = f => fs.readFileSync(path.join(ROOT, 'src/assets/img', f), 'utf8').replace(/<\?xml[^>]*>/, '').replace(/width="[\d.]+" height="[\d.]+"/, '');
+const crypto = require('crypto');
+const VER = crypto.createHash('md5').update(fs.readFileSync(path.join(ROOT, 'src/assets/css/style.css'))).update(fs.readFileSync(path.join(ROOT, 'src/assets/js/main.js'))).digest('hex').slice(0, 8);
 const SYM = svg('symbole_couleur.svg');
 const SYM_INV = svg('symbole_inverse.svg');
 
@@ -81,7 +83,7 @@ ${alt}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Reem+Kufi:wght@500;700&family=Noto+Kufi+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/style.css?v=${VER}">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'NGO', name: T.fr.name, alternateName: [T.ar.name, T.en.name], url: cfg.siteUrl, logo: `${cfg.siteUrl}/assets/img/icon-512.png`, email: cfg.email, address: { '@type': 'PostalAddress', addressLocality: 'Borj Louzir', addressRegion: 'Ariana', addressCountry: 'TN' }, sameAs: [cfg.facebook, cfg.instagram].filter(Boolean) })}</script>
 </head>
 <body class="page-${page.id}">
@@ -104,7 +106,7 @@ ${body}
   </div>
   <div class="wrap f-bottom"><span>© ${new Date().getFullYear()} ${t.name}. ${t.footer.rights}</span><span class="stripe" aria-hidden="true"></span></div>
 </footer>
-<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/main.js?v=${VER}" defer></script>
 </body>
 </html>`;
 }
@@ -160,7 +162,7 @@ const render = {
   <div><h2>${a.goalsTitle}</h2><ol class="goals">${a.goals.map(g => `<li>${g}</li>`).join('')}</ol></div>
 </div></section>
 <section class="section"><div class="wrap"><h2>${a.valuesTitle}</h2><ul class="values">${a.values.map((v, i) => `<li class="c${i % 3}">${v}</li>`).join('')}</ul></div></section>
-<section class="section alt"><div class="wrap"><h2>${a.boardTitle}</h2><div class="board">${a.board.map(b => `<div class="member">${b.p && fs.existsSync(path.join(ROOT, 'src/assets/img/bureau', b.p)) ? `<img class="photo" src="../assets/img/bureau/${b.p}" alt="${esc(b.n)}" width="240" height="240" loading="lazy">` : `<span class="avatar" aria-hidden="true">${b.n.trim().charAt(0)}</span>`}<h3>${b.n}</h3><p class="role">${b.r}</p>${b.d ? `<p>${b.d}</p>` : ''}</div>`).join('')}</div></div></section>`;
+<section class="section alt"><div class="wrap"><h2>${a.boardTitle}</h2><div class="board">${a.board.map(b => `<div class="member">${b.p && fs.existsSync(path.join(ROOT, 'src/assets/img/bureau', b.p)) ? `<img class="photo" src="../assets/img/bureau/${b.p}" alt="${esc(b.n)}" width="240" height="240" loading="lazy">` : `<span class="avatar" aria-hidden="true">${b.n.trim().charAt(0)}</span>`}<div class="member-text"><h3>${b.n}</h3><p class="role">${b.r}</p>${b.d ? `<p class="tagline">${b.d}</p>` : ''}${b.bio ? `<p class="bio">${b.bio}</p>` : ''}${b.tags ? `<ul class="chips">${b.tags.map(x => `<li>${x}</li>`).join('')}</ul>` : ''}</div></div>`).join('')}</div></div></section>`;
   },
   projects(l) {
     const p = T[l].projects;

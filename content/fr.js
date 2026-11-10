@@ -60,9 +60,15 @@ module.exports = {
     values: ['La culture, un droit pour tous', 'L’innovation au service de l’humain', 'L’art comme dialogue', 'Le respect de la diversité', 'La transparence et la bonne gouvernance', 'L’ouverture sur le monde'],
     boardTitle: 'Le bureau',
     board: [
-      { n: 'Mohamed Kamel Cherif', r: 'Président', d: 'Violoniste, compositeur et artiste pluridisciplinaire.', p: 'kamel-cherif.jpg' },
-      { n: 'Ameni Zemni', r: 'Trésorière', d: '', p: 'ameni-zemni.jpg' },
-      { n: 'Yassine Kchaou', r: 'Secrétaire général', d: '', p: 'yassine-kchaou.jpg' },
+      { n: 'Mohamed Kamel Cherif', r: 'Président', d: 'Violoniste, compositeur et artiste pluridisciplinaire.', p: 'kamel-cherif.jpg',
+        bio: 'Formé aux conservatoires de Sfax et de Tunis, Mohamed Kamel Cherif est violoniste professionnel et le premier violoniste tunisien à avoir porté un spectacle en solo, entre musique tunisienne et arabe, pop et rock. Il a joué à l’ouverture des Journées Théâtrales de Carthage (2009), aux Journées Musicales de Carthage (2017) et à la Cité de la Culture avec « Humanity Still Alive » (2023), une création sur le dérèglement climatique. Il compose et joue aussi pour le théâtre et le cinéma, dont la musique originale du film « Out of Bessarabia », sélectionné à Cannes en 2007. Il est le créateur du projet THE ONE.',
+        tags: ['Violon', 'Composition', 'Théâtre', 'Cinéma'] },
+      { n: 'Ameni Zemni', r: 'Trésorière', d: 'Spécialiste en révision comptable et en fiscalité.', p: 'ameni-zemni.jpg',
+        bio: 'Titulaire d’un mastère professionnel en révision comptable (2025), Ameni Zemni est spécialisée en fiscalité, notamment internationale. Depuis 2022, elle coordonne le support aux missions du pôle fiscal d’EY Tunisie, après des expériences de comptable en Tunisie et en France et de formatrice en comptabilité. Elle veille à la rigueur de la gestion financière de l’association et à la transparence de ses comptes.',
+        tags: ['Révision comptable', 'Fiscalité', 'Gestion financière'] },
+      { n: 'Yassine Kchaou', r: 'Secrétaire général', d: 'Gestionnaire et acteur associatif.', p: 'yassine-kchaou.jpg',
+        bio: 'Titulaire d’une maîtrise en sciences comptables, Yassine Kchaou cumule plus de treize ans d’expérience dans le commerce et la distribution, dont huit comme chef de succursale, à diriger des équipes, piloter des opérations et construire des relations durables avec clients et partenaires. Fondateur et président du Juventus Official Fan Club de Tunis, il apporte à l’association son expérience de la vie associative, de l’organisation et du management.',
+        tags: ['Gestion', 'Management', 'Vie associative'] },
     ],
   },
   projects: {
